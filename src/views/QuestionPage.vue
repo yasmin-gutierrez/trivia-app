@@ -46,7 +46,7 @@ const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     //swap
-    [array[i], array[j]] = [array[j], [array[i]]]; 
+    [array[i], array[j]] = [array[j], array[i]];  
   }
 
   return array 
@@ -74,11 +74,12 @@ const handleAnswer = (points) => {
 
 <template>
   <div v-if="question" class="flex h-full w-full flex-col items-center gap-8 p-10">
-    <BaseTitle><MainScore></MainScore> &nbsp;
+    <BaseTitle>
+      <MainScore></MainScore> &nbsp;
       <span class="font-bold" :class="notification === 'CORRECT' ? 'text-green-500' : 'text-red-500'">
         {{ notification }}
       </span> 
-      </BaseTitle>
+    </BaseTitle>
     <!-- {{ question.question }} -->
 
     <div v-html="question.question" class="text-center text-2xl font-bold"></div>
